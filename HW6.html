@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HW6</title>
+<style>
+  .s {
+    width: 100px;
+    height: 400px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    pudding: 10px;
+  }
+  .light {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #333;
+    border-radius: 50%;
+  }
+  .red { background-color: red; }
+  .yellow { background-color: yellow; }
+  .green { background-color: green; }
+</style>
+</head>
+<body>
+
+<div class="s">
+  <div id="redLight" class="light red"></div>
+  <div id="yellowLight" class="light"></div>
+  <div id="greenLight" class="light"></div>
+</div>
+
+<button onclick="changeLight()">NEXT</button>
+
+<script>
+  const lights = ['red', 'yellow', 'green'];
+  let currentLightIndex = 0;
+
+  function changeLight() {
+    const currentLight = lights[currentLightIndex];
+    document.getElementById(`${currentLight}Light`).classList.remove(currentLight);
+    currentLightIndex = (currentLightIndex + 1) % lights.length;
+    const nextLight = lights[currentLightIndex];
+    document.getElementById(`${nextLight}Light`).classList.add(nextLight);
+  }
+</script>
+
+</body>
+</html>
+
+
